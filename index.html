@@ -347,7 +347,7 @@
     <h2 class="h2">Estar en la lista tiene premio</h2>
     <ul class="stack">
       <li><span>Aviso antes que nadie cuando abran las puertas</span><span>✓</span></li>
-      <li><span>Contenido cada día en la comunidad de WhatsApp</span><span>✓</span></li>
+      <li><span>Contenido cada día en el canal de WhatsApp</span><span>✓</span></li>
       <li><span>Precio de fundador bloqueado de por vida</span><span>49 $/mes</span></li>
       <li><span>Primer mes gratis para toda la lista</span><span>✓</span></li>
     </ul>
@@ -378,7 +378,7 @@
   <div class="wrap">
     <h2 class="h2">Preguntas frecuentes</h2>
     <div class="faq">
-      <details><summary>¿Cuándo abre la academia?</summary><p>Lo anunciaré primero en la comunidad de WhatsApp, con al menos 7 días de antelación.</p></details>
+      <details><summary>¿Cuándo abre la academia?</summary><p>Lo anunciaré primero en el canal de WhatsApp, con al menos 7 días de antelación.</p></details>
       <details><summary>¿Por qué gratis para los 100 primeros?</summary><p>Porque la comunidad es nueva y quiero construirla con los primeros: son los que le dan vida desde el primer día.</p></details>
       <details><summary>¿Tengo que saber de cripto, de economía o de IA?</summary><p>No. Empezamos por el principio: qué es el dinero, qué es Bitcoin y cómo crear tu primera wallet. La economía y la IA, igual: desde cero.</p></details>
       <details><summary>¿Dais señales de compra o venta?</summary><p>No. Aquí aprendes un método para decidir tú.</p></details>
@@ -435,10 +435,10 @@
       <div class="posicion">Eres el <span id="posicion">nº —</span></div>
       <div class="m-sub" id="grupo" style="margin-bottom:0"></div>
       <div class="pasos-final">
-        <div class="pf"><div class="t">2 · Únete a la comunidad de WhatsApp</div><a class="btn" id="enlace-whatsapp" href="#" target="_blank" rel="noopener">Entrar en la comunidad</a></div>
+        <div class="pf"><div class="t">2 · Únete al canal de WhatsApp <span style="color:var(--gris);font-weight:500">(recomendado)</span></div><a class="btn" id="enlace-whatsapp" href="#" target="_blank" rel="noopener">Unirme al canal</a></div>
         <div class="pf"><div class="t">3 · Sígueme en Instagram</div><a class="btn btn-sec" id="enlace-instagram" href="#" target="_blank" rel="noopener">@gabrielperdomofinanzas</a></div>
       </div>
-      <p class="ayuda" style="text-align:center;margin-top:1rem">Sin los pasos 2 y 3 no cuenta tu plaza.</p>
+      <p class="ayuda" style="text-align:center;margin-top:1rem">Para que cuente tu plaza, sigue mi Instagram. En el canal aviso primero de la apertura.</p>
     </div>
   </div>
 </div>
@@ -447,7 +447,7 @@
   // Configuración: se rellena al publicar la landing.
   const CONFIG = {
     webhook: "/lista.php", // intermediario en el propio servidor: n8n no se ve desde la página
-    whatsapp: "PEGAR_ENLACE_DE_LA_COMUNIDAD_DE_WHATSAPP",
+    whatsapp: "https://whatsapp.com/channel/0029VbE76KVAojYz6eubNv3H",
     instagram: "https://www.instagram.com/gabrielperdomofinanzas/"
   };
   const MOTIVOS = {
@@ -524,7 +524,7 @@
     document.getElementById("exito").style.display = "block";
     document.getElementById("posicion").textContent = res.posicion ? "nº " + res.posicion : "dentro";
     document.getElementById("grupo").innerHTML = res.top100
-      ? "Estás entre los 100 primeros: si completas los pasos 2 y 3 antes de la apertura, <strong>entras gratis de por vida</strong>."
+      ? "Estás entre los 100 primeros: si sigues mi Instagram antes de la apertura, <strong>entras gratis de por vida</strong>."
       : "Tendrás el <strong>primer mes gratis</strong> y el precio de fundador bloqueado de por vida.";
   }
   // — Efectos (12-10-2026): aparición al hacer scroll, contadores, profundidad del hero, luz en tarjetas y botón fijo —
