@@ -1,0 +1,4 @@
+# Mientras la lista de espera no esté abierta, la web no se indexa.
+# El día de la apertura de la lista: cambiar «Disallow: /» por «Allow: /» y quitar el noindex de las páginas.
+User-agent: *
+Disallow: /
