@@ -432,8 +432,6 @@
     <div class="exito" id="exito" aria-live="polite">
       <div class="check">✓</div>
       <div class="m-titulo">¡Ya estás en la lista!</div>
-      <div class="posicion">Eres el <span id="posicion">nº —</span></div>
-      <div class="m-sub" id="grupo" style="margin-bottom:0"></div>
       <div class="pasos-final">
         <div class="pf"><div class="t">2 · Únete al canal de WhatsApp <span style="color:var(--gris);font-weight:500">(recomendado)</span></div><a class="btn" id="enlace-whatsapp" href="#" target="_blank" rel="noopener">Unirme al canal</a></div>
         <div class="pf"><div class="t">3 · Sígueme en Instagram</div><a class="btn btn-sec" id="enlace-instagram" href="#" target="_blank" rel="noopener">@gabrielperdomofinanzas</a></div>
@@ -505,7 +503,7 @@
       website: form.website.value
     };
 
-    if (location.protocol === "file:") return mostrarExito({ ok: true, posicion: 1, top100: true }); // vista previa local
+    if (location.protocol === "file:") return mostrarExito({ ok: true }); // vista previa local
 
     boton.disabled = true; boton.textContent = "Apuntándote…";
     try {
@@ -520,19 +518,8 @@
   });
 
   function mostrarExito(res) {
-    // Lleva a la página de gracias con la posición (n), si está entre los 50 (t) y si ya estaba en la lista (y).
-    const q = new URLSearchParams();
-    if (res.posicion) q.set("n", res.posicion);
-    q.set("t", res.top100 ? "1" : "0");
-    if (res.ya_estaba) q.set("y", "1");
-    location.href = "gracias.html?" + q.toString();
-    return;
-    document.getElementById("paso-form").style.display = "none";
-    document.getElementById("exito").style.display = "block";
-    document.getElementById("posicion").textContent = res.posicion ? "nº " + res.posicion : "dentro";
-    document.getElementById("grupo").innerHTML = res.top100
-      ? "Estás entre los 50 primeros: si sigues mi Instagram antes de la apertura, <strong>entras gratis de por vida</strong>."
-      : "Tendrás el <strong>primer mes gratis</strong> y el precio de fundador bloqueado de por vida.";
+    // Lleva a la página de gracias. Nunca se enseña la posición en la lista (decisión de Gabriel, 12-10).
+    location.href = "gracias.html" + (res && res.ya_estaba ? "?y=1" : "");
   }
   // Si el vídeo de bienvenida todavía no está subido, no se enseña un marco vacío.
   document.querySelector("#bloque-video source").addEventListener("error", () => { document.getElementById("bloque-video").style.display = "none"; });

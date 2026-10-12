@@ -86,7 +86,7 @@
     <span class="estado entra" style="--d:.08s"><span class="check">✓</span>Plaza reservada</span>
     <h1 class="h1 entra" style="--d:.16s">¡Gracias!<br><span class="acento">Ya estás en la manada.</span></h1>
     <p class="posicion entra" style="--d:.24s" id="posicion">Ya estás en la lista de espera.</p>
-    <p class="grupo entra" style="--d:.3s" id="grupo"></p>
+    <p class="grupo entra" style="--d:.3s">Si eres de los 50 primeros y sigues mi Instagram antes de la apertura, <strong>entras gratis de por vida</strong>. Si no, tendrás el <strong>primer mes gratis</strong> y el precio de fundador bloqueado.</p>
 
     <div class="prueba entra" style="--d:.38s" id="bloque-video">
       <div class="marco-video">
@@ -132,20 +132,9 @@
 </main>
 
 <script>
-  // Lee el resultado del alta que manda la landing: ?n=posición&t=1 (entre los 50) &y=1 (ya estaba en la lista).
-  const p = new URLSearchParams(location.search);
-  const n = parseInt(p.get("n"), 10);
-  const top100 = p.get("t") === "1";
-  const yaEstaba = p.get("y") === "1";
-  if (n > 0) {
-    const pos = document.getElementById("posicion");
-    pos.textContent = "";
-    pos.append(yaEstaba ? "Ya estabas en la lista: eres el " : "Eres el ");
-    const b = document.createElement("b"); b.textContent = "nº " + n; pos.append(b);
-    pos.append(" de la lista de espera.");
-    document.getElementById("grupo").innerHTML = top100
-      ? "Estás entre los 50 primeros: si sigues mi Instagram antes de la apertura, <strong>entras gratis de por vida</strong>."
-      : "Tendrás el <strong>primer mes gratis</strong> y el precio de fundador bloqueado de por vida.";
+  // Nunca se enseña la posición en la lista (decisión de Gabriel, 12-10). Solo se distingue si ya estaba apuntado (?y=1).
+  if (new URLSearchParams(location.search).get("y") === "1") {
+    document.getElementById("posicion").textContent = "Ya estabas en la lista de espera: tu plaza sigue guardada.";
   }
   // Si el vídeo todavía no está subido, no se enseña un marco vacío.
   const fuente = document.querySelector("#bloque-video source");
