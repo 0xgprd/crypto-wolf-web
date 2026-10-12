@@ -214,6 +214,11 @@
     .orbe-1 { width: 380px; height: 380px; margin-left: -190px; top: -180px; }
   }
   @media (prefers-reduced-motion: reduce) { .pulso, .pista, .cinta .fila, .acento, .reflejo, .estado .dot, .orbe, .btn::after { animation: none !important; } html { scroll-behavior: auto; } }
+  .marco-video { position: relative; }
+  .sonido { position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); display: none; align-items: center; gap: .5rem; padding: 12px 22px; border: 0; border-radius: 50px; background: var(--azul); color: #fff; font: 800 .95rem "Plus Jakarta Sans", system-ui, sans-serif; letter-spacing: .02em; cursor: pointer; box-shadow: 0 10px 36px rgba(0, 0, 0, .55), 0 0 30px rgba(47, 123, 255, .45); animation: llama 2s infinite; z-index: 2; }
+  .sonido.visible { display: inline-flex; }
+  @keyframes llama { 50% { box-shadow: 0 10px 36px rgba(0, 0, 0, .55), 0 0 0 10px rgba(47, 123, 255, .12); } }
+  @media (prefers-reduced-motion: reduce) { .sonido { animation: none; } }
 </style>
 </head>
 <body>
@@ -241,9 +246,10 @@
     </div>
     <div class="prueba" id="bloque-video">
       <div class="marco-video">
-        <video controls playsinline preload="metadata" poster="poster.jpg">
+        <video id="video-principal" controls playsinline autoplay preload="auto" poster="poster.jpg">
           <source src="bienvenida-manada.mp4" type="video/mp4">
         </video>
+        <button class="sonido" id="boton-sonido" type="button">🔊 Toca para escuchar</button>
       </div>
       <p class="nota-video">Vídeo con mi avatar digital</p>
     </div>
@@ -566,6 +572,22 @@
     new IntersectionObserver(([e]) => { enHero = e.isIntersecting; pinta(); }).observe(document.querySelector(".hero"));
     new IntersectionObserver(([e]) => { enFinal = e.isIntersecting; pinta(); }).observe(document.querySelector(".final"));
   }
+
+  // Arranque automático del vídeo (12-10-2026). Primero se intenta con sonido; si el navegador no lo permite, arranca
+  // en silencio y aparece «Toca para escuchar», que lo vuelve a poner desde el principio con sonido.
+  (function () {
+    const v = document.getElementById("video-principal");
+    const b = document.getElementById("boton-sonido");
+    if (!v || !b) return;
+    const conSonido = () => { v.muted = false; v.currentTime = 0; v.play(); b.classList.remove("visible"); };
+    b.addEventListener("click", conSonido);
+    v.addEventListener("volumechange", () => { if (!v.muted) b.classList.remove("visible"); });
+    v.muted = false;
+    v.play().catch(() => {
+      v.muted = true;
+      v.play().then(() => b.classList.add("visible")).catch(() => {});
+    });
+  })();
 </script>
 </body>
 </html>

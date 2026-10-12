@@ -74,6 +74,11 @@
   @keyframes aparece { to { opacity: 1; transform: none; } }
   @media (max-width: 600px) { .orbe-1 { width: 360px; height: 360px; margin-left: -180px; top: -170px; } .cabecera { padding-top: 56px; } }
   @media (prefers-reduced-motion: reduce) { .acento, .orbe, .btn::after { animation: none !important; } }
+  .marco-video { position: relative; }
+  .sonido { position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); display: none; align-items: center; gap: .5rem; padding: 12px 22px; border: 0; border-radius: 50px; background: var(--azul); color: #fff; font: 800 .95rem "Plus Jakarta Sans", system-ui, sans-serif; letter-spacing: .02em; cursor: pointer; box-shadow: 0 10px 36px rgba(0, 0, 0, .55), 0 0 30px rgba(47, 123, 255, .45); animation: llama 2s infinite; z-index: 2; }
+  .sonido.visible { display: inline-flex; }
+  @keyframes llama { 50% { box-shadow: 0 10px 36px rgba(0, 0, 0, .55), 0 0 0 10px rgba(47, 123, 255, .12); } }
+  @media (prefers-reduced-motion: reduce) { .sonido { animation: none; } }
 </style>
 </head>
 <body>
@@ -91,9 +96,10 @@
 
     <div class="prueba entra" style="--d:.38s" id="bloque-video">
       <div class="marco-video">
-        <video controls playsinline preload="metadata" poster="poster-gracias.jpg">
+        <video id="video-principal" controls playsinline autoplay preload="auto" poster="poster-gracias.jpg">
           <source src="gracias.mp4" type="video/mp4">
         </video>
+        <button class="sonido" id="boton-sonido" type="button">🔊 Toca para escuchar</button>
       </div>
       <p class="nota-video">Vídeo con mi avatar digital</p>
     </div>
@@ -140,6 +146,22 @@
   // Si el vídeo todavía no está subido, no se enseña un marco vacío.
   const fuente = document.querySelector("#bloque-video source");
   fuente.addEventListener("error", () => { document.getElementById("bloque-video").style.display = "none"; });
+
+  // Arranque automático del vídeo (12-10-2026). Primero se intenta con sonido; si el navegador no lo permite, arranca
+  // en silencio y aparece «Toca para escuchar», que lo vuelve a poner desde el principio con sonido.
+  (function () {
+    const v = document.getElementById("video-principal");
+    const b = document.getElementById("boton-sonido");
+    if (!v || !b) return;
+    const conSonido = () => { v.muted = false; v.currentTime = 0; v.play(); b.classList.remove("visible"); };
+    b.addEventListener("click", conSonido);
+    v.addEventListener("volumechange", () => { if (!v.muted) b.classList.remove("visible"); });
+    v.muted = false;
+    v.play().catch(() => {
+      v.muted = true;
+      v.play().then(() => b.classList.add("visible")).catch(() => {});
+    });
+  })();
 </script>
 </body>
 </html>
