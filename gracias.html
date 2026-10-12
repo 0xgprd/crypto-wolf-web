@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<script>if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("anim")</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Gracias · Ya estás en la manada · Crypto Wolf Academy</title>
+<meta name="description" content="Ya estás en la lista de espera de Crypto Wolf Academy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* Página de gracias (12-10-2026): mismo estilo que la landing, colores de la marca crypto-wolf. */
+  :root { --noche: #0B0E14; --azul: #2F7BFF; --azul-2: #5C97FF; --brillo: rgba(47, 123, 255, .28); --plata: #C7CDD6; --gris: #8B93A1; --texto: #F4F5F7; --borde: rgba(47, 123, 255, .16); --ok: #2FBF71; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; scrollbar-color: var(--azul) var(--noche); }
+  body { background: var(--noche); color: var(--texto); font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: var(--azul-2); }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 20px; width: 100%; position: relative; z-index: 1; }
+
+  .cabecera { position: relative; overflow: hidden; padding: 70px 0 40px; text-align: center; }
+  .orbe { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+  .orbe-1 { width: 520px; height: 520px; background: rgba(47, 123, 255, .24); top: -260px; left: 50%; margin-left: -260px; animation: flota 12s ease-in-out infinite; }
+  .orbe-2 { width: 300px; height: 300px; background: rgba(199, 205, 214, .08); top: 40%; right: -130px; animation: flota 15s ease-in-out infinite reverse; }
+  @keyframes flota { 50% { translate: 0 24px; } }
+  .rejilla-fondo { position: absolute; inset: 0; z-index: 0; pointer-events: none; background-image: linear-gradient(rgba(255, 255, 255, .035) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .035) 1px, transparent 1px); background-size: 48px 48px; -webkit-mask-image: radial-gradient(ellipse at 50% 10%, #000 15%, transparent 65%); mask-image: radial-gradient(ellipse at 50% 10%, #000 15%, transparent 65%); }
+
+  .marca { font-weight: 800; letter-spacing: .18em; font-size: .8rem; color: var(--plata); margin-bottom: 1.3rem; }
+  .estado { display: inline-flex; align-items: center; gap: .55rem; font-size: .82rem; font-weight: 700; color: #E3E7EE; background: rgba(47, 191, 113, .08); border: 1px solid rgba(47, 191, 113, .4); padding: 8px 16px; border-radius: 50px; margin-bottom: 1.4rem; }
+  .estado .check { color: var(--ok); font-weight: 800; }
+  .h1 { font-size: clamp(2.1rem, 6.5vw, 3.8rem); font-weight: 800; line-height: 1.07; letter-spacing: -.03em; margin-bottom: 1rem; }
+  .acento { background: linear-gradient(100deg, var(--azul) 0%, var(--azul-2) 30%, var(--plata) 45%, var(--azul-2) 60%, var(--azul) 100%); background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: reflejo 7s linear infinite; }
+  @keyframes reflejo { from { background-position: 100% 0; } to { background-position: -150% 0; } }
+  .posicion { font-size: clamp(1.1rem, 2.6vw, 1.35rem); color: #D3D8E0; }
+  .posicion b { color: var(--azul-2); font-size: 1.25em; }
+  .grupo { color: var(--plata); margin-top: .5rem; max-width: 620px; margin-left: auto; margin-right: auto; }
+  .grupo strong { color: var(--texto); }
+
+  .prueba { max-width: 760px; margin: 2.2rem auto 0; }
+  .marco-video { border-radius: 18px; overflow: hidden; border: 1px solid rgba(47, 123, 255, .4); box-shadow: 0 24px 70px rgba(0, 0, 0, .65), 0 0 50px rgba(47, 123, 255, .12); background: #000; aspect-ratio: 16 / 9; }
+  .marco-video video { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .nota-video { font-size: .78rem; color: var(--gris); margin-top: .6rem; text-align: center; }
+
+  .pasos { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin: 2.4rem 0 1rem; }
+  .paso { position: relative; overflow: hidden; background: rgba(255, 255, 255, .02); border: 1px solid var(--borde); border-radius: 16px; padding: 1.5rem; text-align: left; transition: transform .25s, border-color .25s, box-shadow .25s; }
+  .paso:hover { transform: translateY(-4px); border-color: var(--azul); box-shadow: 0 12px 40px rgba(47, 123, 255, .12); }
+  .paso.clave { border-color: rgba(47, 123, 255, .5); background: radial-gradient(ellipse at 50% 0%, rgba(47, 123, 255, .1), transparent 70%); }
+  .etiqueta { display: inline-block; font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; padding: 4px 10px; border-radius: 50px; margin-bottom: .7rem; }
+  .etiqueta.necesario { background: var(--azul); color: #fff; }
+  .etiqueta.recomendado { border: 1px solid rgba(255, 255, 255, .2); color: var(--plata); }
+  .paso h2 { font-size: 1.15rem; font-weight: 800; margin-bottom: .4rem; }
+  .paso p { color: #B9C0CC; font-size: .95rem; margin-bottom: 1.1rem; }
+
+  .btn { position: relative; overflow: hidden; display: block; text-align: center; padding: 15px 22px; background: var(--azul); color: #fff; text-decoration: none; font-weight: 800; font-size: .95rem; border-radius: 50px; text-transform: uppercase; letter-spacing: .05em; border: 2px solid var(--azul); box-shadow: 0 12px 36px var(--brillo); transition: transform .25s, box-shadow .25s; }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 18px 50px rgba(47, 123, 255, .45); }
+  .btn::after { content: ""; position: absolute; top: 0; left: -120%; width: 60%; height: 100%; background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .32), transparent); transform: skewX(-20deg); animation: destello 4.5s ease-in-out infinite; pointer-events: none; }
+  @keyframes destello { 0%, 62% { left: -120%; } 100% { left: 160%; } }
+  .btn-sec { background: transparent; color: var(--azul-2); box-shadow: none; }
+  .btn-sec::after { display: none; }
+  .btn-sec:hover { background: rgba(47, 123, 255, .1); box-shadow: none; }
+
+  .ahora { margin: 2.6rem auto 0; max-width: 680px; text-align: left; }
+  .ahora h3 { font-size: 1.05rem; font-weight: 800; text-align: center; margin-bottom: 1rem; color: var(--plata); letter-spacing: .04em; }
+  .ahora li { list-style: none; display: flex; gap: .8rem; padding: .75rem 0; border-bottom: 1px dashed rgba(255, 255, 255, .1); color: #D3D8E0; }
+  .ahora li:last-child { border-bottom: none; }
+  .ahora .ico { flex: 0 0 auto; }
+
+  footer { margin-top: 3.5rem; border-top: 1px solid rgba(255, 255, 255, .06); padding: 26px 0 40px; text-align: center; font-size: .82rem; color: var(--gris); }
+  footer p { margin: .4rem 0; }
+
+  .anim .entra { opacity: 0; transform: translateY(22px); animation: aparece .8s cubic-bezier(.2, .7, .2, 1) forwards; animation-delay: var(--d, 0s); }
+  @keyframes aparece { to { opacity: 1; transform: none; } }
+  @media (max-width: 600px) { .orbe-1 { width: 360px; height: 360px; margin-left: -180px; top: -170px; } .cabecera { padding-top: 56px; } }
+  @media (prefers-reduced-motion: reduce) { .acento, .orbe, .btn::after { animation: none !important; } }
+</style>
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="rejilla-fondo" aria-hidden="true"></div>
+  <div class="orbe orbe-1" aria-hidden="true"></div>
+  <div class="orbe orbe-2" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="marca entra">CRYPTO WOLF ACADEMY 🐺</div>
+    <span class="estado entra" style="--d:.08s"><span class="check">✓</span>Plaza reservada</span>
+    <h1 class="h1 entra" style="--d:.16s">¡Gracias!<br><span class="acento">Ya estás en la manada.</span></h1>
+    <p class="posicion entra" style="--d:.24s" id="posicion">Ya estás en la lista de espera.</p>
+    <p class="grupo entra" style="--d:.3s" id="grupo"></p>
+
+    <div class="prueba entra" style="--d:.38s" id="bloque-video">
+      <div class="marco-video">
+        <video controls playsinline preload="metadata" poster="poster-gracias.jpg">
+          <source src="gracias.mp4" type="video/mp4">
+        </video>
+      </div>
+      <p class="nota-video">Vídeo con mi avatar digital</p>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="pasos">
+    <div class="paso clave entra" style="--d:.46s">
+      <span class="etiqueta necesario">Necesario para tu plaza</span>
+      <h2>Sígueme en Instagram</h2>
+      <p>Cada día, un vídeo corto para entender el dinero, la economía y la cripto.</p>
+      <a class="btn" id="enlace-instagram" href="https://www.instagram.com/gabrielperdomofinanzas/" target="_blank" rel="noopener">Seguir a @gabrielperdomofinanzas</a>
+    </div>
+    <div class="paso entra" style="--d:.54s">
+      <span class="etiqueta recomendado">Recomendado</span>
+      <h2>Únete al canal de WhatsApp</h2>
+      <p>Ahí aviso primero de la apertura y, de vez en cuando, comparto contenido exclusivo.</p>
+      <a class="btn btn-sec" id="enlace-whatsapp" href="https://whatsapp.com/channel/0029VbE76KVAojYz6eubNv3H" target="_blank" rel="noopener">Unirme al canal</a>
+    </div>
+  </div>
+
+  <div class="ahora entra" style="--d:.62s">
+    <h3>¿Y AHORA QUÉ?</h3>
+    <ul>
+      <li><span class="ico">🛠️</span><span>Estoy preparando la escuela para que encuentres el mejor contenido de valor: claro, paso a paso y sin humo.</span></li>
+      <li><span class="ico">📣</span><span>Serás de los primeros en enterarte: anunciaré la apertura en el canal de WhatsApp, con al menos 7 días de antelación.</span></li>
+      <li><span class="ico">🎬</span><span>Mientras tanto, aprende cada día con los vídeos cortos de Instagram.</span></li>
+    </ul>
+  </div>
+
+  <footer>
+    <p>⚠️ Contenido educativo, no asesoramiento financiero. Las criptomonedas son activos de alto riesgo: puedes perder todo lo invertido.</p>
+    <p><a href="index.html">Volver al inicio</a> · <a href="privacidad.html">Política de privacidad</a> · <a href="bases.html">Bases de la promoción</a></p>
+    <p>© Crypto Wolf Academy</p>
+  </footer>
+</main>
+
+<script>
+  // Lee el resultado del alta que manda la landing: ?n=posición&t=1 (entre los 50) &y=1 (ya estaba en la lista).
+  const p = new URLSearchParams(location.search);
+  const n = parseInt(p.get("n"), 10);
+  const top100 = p.get("t") === "1";
+  const yaEstaba = p.get("y") === "1";
+  if (n > 0) {
+    const pos = document.getElementById("posicion");
+    pos.textContent = "";
+    pos.append(yaEstaba ? "Ya estabas en la lista: eres el " : "Eres el ");
+    const b = document.createElement("b"); b.textContent = "nº " + n; pos.append(b);
+    pos.append(" de la lista de espera.");
+    document.getElementById("grupo").innerHTML = top100
+      ? "Estás entre los 50 primeros: si sigues mi Instagram antes de la apertura, <strong>entras gratis de por vida</strong>."
+      : "Tendrás el <strong>primer mes gratis</strong> y el precio de fundador bloqueado de por vida.";
+  }
+  // Si el vídeo todavía no está subido, no se enseña un marco vacío.
+  const fuente = document.querySelector("#bloque-video source");
+  fuente.addEventListener("error", () => { document.getElementById("bloque-video").style.display = "none"; });
+</script>
+</body>
+</html>
