@@ -9,10 +9,11 @@
 <meta name="description" content="Cripto, economía e inteligencia artificial, con método y sin humo. Lista de espera de Crypto Wolf Academy: los 50 primeros entran gratis de por vida.">
 <meta property="og:title" content="Te sobra ruido. Te falta método. · Crypto Wolf Academy">
 <meta property="og:description" content="Lista de espera: los 50 primeros entran gratis de por vida.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" href="fuentes/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+  /* Tipografía alojada en nuestro servidor (no en Google): Google no recibe la IP de nadie. */
+  @font-face { font-family: "Plus Jakarta Sans"; font-style: normal; font-weight: 200 800; font-display: swap; src: url(fuentes/plus-jakarta-sans-latin-ext.woff2) format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+  @font-face { font-family: "Plus Jakarta Sans"; font-style: normal; font-weight: 200 800; font-display: swap; src: url(fuentes/plus-jakarta-sans-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
   /* Estructura inspirada en la landing de La Tribu Divisual (12-10-2026); colores de la marca crypto-wolf. */
   :root {
     --noche: #0B0E14;
@@ -349,7 +350,7 @@
       <li><span>Aviso antes que nadie cuando abran las puertas</span><span>✓</span></li>
       <li><span>Contenido exclusivo en el canal de WhatsApp</span><span>✓</span></li>
       <li><span>Precio de fundador bloqueado de por vida</span><span>49 $/mes</span></li>
-      <li><span>Primer mes gratis para toda la lista</span><span>✓</span></li>
+      <li><span>Primer mes gratis para el resto de la lista</span><span>✓</span></li>
     </ul>
     <div class="precio">
       <span class="bandera">Solo para la lista</span>
@@ -423,7 +424,7 @@
         <div class="campo"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" maxlength="120" placeholder="tu@email.com"></div>
         <div class="campo"><label for="telefono">WhatsApp (con el prefijo de tu país)</label><input id="telefono" name="telefono" type="tel" autocomplete="tel" maxlength="20" placeholder="+34 600 000 000"><div class="ayuda">España +34 · México +52 · Colombia +57 · Argentina +54…</div></div>
         <div class="trampa" aria-hidden="true"><label for="website">No rellenes este campo</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
-        <label class="consent"><input id="consentimiento" type="checkbox"><span>Acepto que Crypto Wolf Academy me escriba por email y WhatsApp sobre la apertura y su contenido. Puedo darme de baja cuando quiera. He leído la <a href="privacidad.html" target="_blank">política de privacidad</a> y las <a href="bases.html" target="_blank">bases de la promoción</a>.</span></label>
+        <label class="consent"><input id="consentimiento" type="checkbox"><span>Tengo 18 años o más. Acepto que Crypto Wolf Academy me escriba por email y WhatsApp sobre la apertura y su contenido. Puedo darme de baja cuando quiera. He leído la <a href="privacidad.html" target="_blank">política de privacidad</a> y las <a href="bases.html" target="_blank">bases de la promoción</a>.</span></label>
         <button class="btn btn-env" id="enviar" type="submit">Reservar mi plaza</button>
         <div class="mensaje" id="mensaje" role="alert" aria-live="polite"></div>
       </form>
